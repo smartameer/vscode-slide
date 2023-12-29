@@ -1,6 +1,6 @@
 import { IPostMessagePayload, IVSCodeAPI } from "./interface"
 
-const vscode: IVSCodeAPI = (global as any).acquireVscodeApi()
+const vscode: IVSCodeAPI = (global as any).acquireVsCodeApi()
 
 export const setState = ({ key, value }: { key: string; value: any }) => {
   const previousState = vscode.getState()
