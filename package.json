@@ -1,7 +1,7 @@
 {
   "name": "code-slide",
   "displayName": "Slide Game",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "VScode Slide puzzle game",
   "main": "./build/extension.js",
   "publisher": "ameer",

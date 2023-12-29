@@ -4,3 +4,4 @@ build
 yarn-error.log
 *.vsix
 media/main.js
+media/main.js.*
