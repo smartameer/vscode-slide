@@ -6,16 +6,13 @@ import Matrix from './matrix'
 import { generateMatrix, isCompleted, randomNumber, shuffle } from './utils'
 import { IMATRIX } from './interface'
 
-// resetState(GAME_MOVES)
-// resetState(SAVED_MATRIX)
 const gameMoves = getState(GAME_MOVES)
 const savedMatrix = getState(SAVED_MATRIX)
 const gameLevel = getState(GAME_LEVEL)
 const defaultMatrix = generateMatrix(gameLevel ?? 4)
 
-
 function App() {
-  const random = randomNumber(20, 50)
+  const random = randomNumber(40, 100)
   const initialMatrix = savedMatrix ?? shuffle(random, defaultMatrix)
   const [matrix, setMatrix] = React.useState<IMATRIX|null>(initialMatrix)
   const [moves, setMoves] = React.useState<number>(gameMoves ?? 0)
@@ -27,7 +24,7 @@ function App() {
       switch (message.command) {
         case 'new':
           let mode = GAME_LEVEL_MODES[message.level]
-          const random = randomNumber(20, 50)
+          const random = randomNumber(40, 100)
           resetState(GAME_MOVES)
           resetState(SAVED_MATRIX)
           resetState(GAME_LEVEL)
@@ -79,11 +76,6 @@ function App() {
   )
 }
 
-
-
-
 const container = document.getElementById('slide-game') as HTMLElement
 const root = createRoot(container)
-const render = () => root.render(<App />)
-
-render()
+root.render(<App />)

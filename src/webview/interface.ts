@@ -9,3 +9,9 @@ export type IMatrixProps = {
   data: IMATRIX
   onPress: (data: IMATRIX) => void
 }
+
+export type IVSCodeAPI = {
+  postMessage(message: any): void
+  setState(data: any): void
+  getState(): any
+}

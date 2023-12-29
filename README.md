@@ -1,71 +1,29 @@
-# code-slide README
+<div align="center">
+<img src="https://raw.githubusercontent.com/smartameer/vscode-slide/master/media/logo.png" width="140" />
 
-This is the README for your extension "code-slide". After writing up a brief description, we recommend including the following sections.
+# VSCode Slide game
 
-## Features
+### A explorer game to explore while code
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+<img src="https://raw.githubusercontent.com/smartameer/vscode-slide/master/screenshots/New%20Game%20(Dark%20mode).png" />
+<br/><br/>
+<a href="https://www.buymeacoffee.com/smartameer" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" height="40" /></a>
+<br/><br/>
+</div>
 
-For example if there is an image subfolder under your extension project workspace:
+Slide game is a classic sliding tile puzzle game where the goal is to arrange the numbers in ascending order by sliding them into an empty space. The game consists of a 4x4 grid with tiles with numbers from 1 to 15, and one empty space. To solve the puzzle, you must strategically move the tiles by sliding them horizontally or vertically. The challenge lies in finding the correct sequence of moves to reach the desired arrangement. This addictive game tests your mental agility, logic, and problem-solving skills. It can be played on various game levels of difficulty. You can now play Slide on VSCODE.
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
+### Feature
 ---
+- Available in Explorer Side panel
+- Number of moves on badge
+- Four game modes (Easy - 3 x 3, Normal - 4 x 4, Hard - 5 x 5)
 
-## Following extension guidelines
+### Control + Command
+---
+- New game
+- Game level
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+### LICENSE
+---
+MIT
