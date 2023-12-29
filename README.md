@@ -17,7 +17,7 @@ Slide game is a classic sliding tile puzzle game where the goal is to arrange th
 ---
 - Available in Explorer Side panel
 - Number of moves on badge
-- Four game modes (Easy - 3 x 3, Normal - 4 x 4, Hard - 5 x 5)
+- Three game modes (Easy - 3 x 3, Normal - 4 x 4, Hard - 5 x 5)
 
 ### Control + Command
 ---

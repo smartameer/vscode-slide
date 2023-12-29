@@ -1,9 +1,13 @@
 # Change Log
 
-All notable changes to the "code-slide" extension will be documented in this file.
+## [1.0.0] 29-12-2023
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+### Major
 
-## [Unreleased]
+- Initial version of slide game
+- Supports 3 game modes
+- Supports current vscode theme
+- Having action for game difficulty level and fresh game
+- Supports showing game moves on activity
 
-- Initial release
+Please feel free to request changes or leave feedback.
