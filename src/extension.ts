@@ -1,5 +1,6 @@
 import * as vscode from 'vscode'
 import SlideGameProvider from './SlideGameProvider'
+import { ScoreProvider } from './ScoreProvider'
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -7,8 +8,12 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.window.registerWebviewViewProvider(SlideGameProvider.viewType, provider)
   )
+  const scoreProvider = new ScoreProvider(context)
   context.subscriptions.push(
-    vscode.commands.registerCommand('slide.new', async () => {
+    vscode.window.registerTreeDataProvider(ScoreProvider.viewType, scoreProvider)
+  )
+  context.subscriptions.push(
+    vscode.commands.registerCommand('slide.game.new', async () => {
       const ack = await vscode.window.showInformationMessage(
         'Do you want to start a new game?',
         'Yes',
@@ -18,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
         await provider.newGame()
       }
     }),
-    vscode.commands.registerCommand('slide.settings', async () => {
+    vscode.commands.registerCommand('slide.game.settings', async () => {
       const level = vscode.workspace.getConfiguration().get('slide.gameLevel')
       const quickPick = vscode.window.createQuickPick()
       quickPick.title = 'Slide game level'
@@ -61,7 +66,20 @@ export function activate(context: vscode.ExtensionContext) {
       quickPick.onDidHide(() => quickPick.dispose)
       quickPick.show()
     }),
+    vscode.commands.registerCommand('slide.scoreboard.refresh', () => {
+      provider.fetchScores((data: any[]) => {
+        scoreProvider.refresh(data)
+      })
+    }),
   )
+
+  vscode.window.createTreeView(ScoreProvider.viewType, {
+		treeDataProvider: scoreProvider,
+		showCollapseAll: true
+	})
+  setTimeout(() => {
+    vscode.commands.executeCommand('slide.scoreboard.refresh')
+  }, 1000)
 }
 
 export function deactivate() {}

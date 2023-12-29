@@ -1,7 +1,7 @@
 {
   "name": "code-slide",
   "displayName": "Slide Game",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "VScode Slide puzzle game",
   "main": "./build/extension.js",
   "publisher": "ameer",
@@ -68,41 +68,73 @@
         {
           "type": "webview",
           "id": "slide.game",
-          "name": "Slide",
+          "name": "Game",
           "visibility": "visible",
           "contextualTitle": "Slide",
           "initialSize": 260,
           "icon": "media/icon.svg"
-        }
+        },
+        {
+					"type": "tree",
+					"id": "slide.scoreboard",
+					"name": "Scoreboard",
+					"visibility": "visible",
+					"contextualTitle": "Scoreboard",
+					"icon": "$(gift)"
+				}
       ]
     },
+    "viewsWelcome": [
+      {
+        "view": "slide.scoreboard",
+        "contents": "No scores recorded.\nEnjoy playing slide game and win."
+      }
+    ],
     "commands": [
       {
-        "command": "slide.new",
-        "category": "Slide",
+        "command": "slide.game.new",
+        "category": "Slide Game",
         "title": "New game",
         "icon": "$(empty-window)",
         "shortTitle": "New"
       },
       {
-				"command": "slide.settings",
-				"category": "Slide",
+				"command": "slide.game.settings",
+				"category": "Slide Game",
 				"title": "Game level",
-				"icon": "$(gear)",
+				"icon": "$(settings)",
 				"shortTitle": "Level"
+			},
+      {
+				"command": "slide.scoreboard.refresh",
+				"category": "Slide Scoreboard",
+				"title": "Refresh Scores",
+				"icon": "$(refresh)",
+				"shortTitle": "Refresh"
 			}
     ],
     "menus": {
 			"view/title": [
 				{
-					"command": "slide.new",
+					"command": "slide.game.new",
 					"group": "navigation@0",
 					"when": "view == slide.game"
 				},
         {
-          "command": "slide.settings",
+          "command": "slide.game.settings",
           "group": "navigation@1",
           "when": "view == slide.game"
+        },
+        {
+          "command": "slide.scoreboard.refresh",
+          "group": "navigation@1",
+          "when": "view == slide.scoreboard"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "slide.scoreboard.refresh",
+          "when": "false"
         }
       ]
     }

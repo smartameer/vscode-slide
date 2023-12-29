@@ -3,6 +3,7 @@ import * as vscode from 'vscode'
 export default class SlideGameProvider implements vscode.WebviewViewProvider {
   public static readonly viewType = 'slide.game'
   private _view?: vscode.WebviewView
+  private _callback?: any
   public static MODE = {
     EASY: '3 x 3',
     NORMAL: '4 x 4',
@@ -32,6 +33,11 @@ export default class SlideGameProvider implements vscode.WebviewViewProvider {
       switch(message.command) {
         case 'moves':
           webviewView.badge = { tooltip: 'Moves', value: message.data.moves }
+          break
+        case 'scores':
+          if (this._callback) {
+            this._callback(message.data.scores)
+          }
           break
       }
     })
@@ -73,6 +79,12 @@ export default class SlideGameProvider implements vscode.WebviewViewProvider {
     const currentView = this._view
     const level = vscode.workspace.getConfiguration().get('slide.gameLevel')
     await currentView?.webview.postMessage({ command: 'new', level })
+  }
+
+  public async fetchScores (callback: any): Promise<void> {
+    this._callback = callback
+    const currentView = this._view
+    await currentView?.webview.postMessage({ command: 'scores' })
   }
 
   private getNonce (): string {

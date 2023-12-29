@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.2] 30-12-2023
+
+- Added scoreboard with history grouped by date
+- Created collapsible panel for game & scoreboard
+- Refrehing scoreboard
+
 ## [1.0.1] 29-12-2023
 
 - Bug fix
