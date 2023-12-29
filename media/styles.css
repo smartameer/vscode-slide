@@ -1,0 +1,147 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  user-select: none;
+}
+.game-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+  width: 250px;
+  height: 250px;
+}
+.game-wrapper.over .slide {
+  filter: blur(4px);
+}
+.game-over {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 3px;
+  background-color: #00000070;
+  text-align: center;
+  color: #fff;
+  padding: 45% 0;
+  font-size: 20px;
+  text-shadow: 0 1px #000;
+}
+
+.container {
+  text-align: center;
+  margin: 20px auto 0;
+  position: relative;
+  border-collapse: collapse;
+}
+
+.batch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slide {
+  background-color: var(--vscode-input-background);
+  margin: 5px;
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+  user-select: none;
+  /* box-shadow: 0px 2px 4px var(--vscode-textSeparator-foreground); */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.game-mode-5 .slide {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 16px;
+}
+
+.game-mode-4 .slide {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+}
+
+.game-mode-3 .slide {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  font-size: 24px;
+}
+
+
+.blank {
+  background-color: #ddd;
+  transition: none;
+  box-shadow: none;
+}
+
+.possible-move {
+  cursor: pointer;
+  will-change: transform;
+}
+
+.to {
+  transition: transform 50ms cubic-bezier(0.35, 0, 0.05, 1.52);
+  z-index: 1;
+}
+
+.to-n,
+.to-s:before {
+  transform: translateY(calc(-100% - 10px));
+}
+
+.to-s,
+.to-n:before {
+  transform: translateY(calc(100% + 10px));
+}
+
+.to-e,
+.to-w:before {
+  transform: translateX(calc(100% + 10px));
+}
+
+.to-w,
+.to-e:before {
+  transform: translateX(calc(-100% - 10px));
+}
+
+.slide:before {
+  content: "";
+  border-radius: 3px;
+}
+
+.to:before {
+  display: block;
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #ddd;
+  transition: transform 50ms cubic-bezier(0.35, 0, 0.05, 1.52);
+  z-index: -1;
+}
+
+.to:after {
+  display: block;
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* background-color: var(--vscode-inputValidation-warningBackground); */
+  z-index: -1;
+  border-radius: 3px;
+}

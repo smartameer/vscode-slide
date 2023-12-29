@@ -1,0 +1,145 @@
+{
+  "name": "code-slide",
+  "displayName": "Slide Game",
+  "version": "0.0.1",
+  "description": "VScode Slide puzzle game",
+  "main": "./build/extension.js",
+  "publisher": "ameer",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "keywords": [
+    "slide",
+    "puzzle",
+    "15 puzzle",
+    "game",
+    "vscode"
+  ],
+  "pricing": "Free",
+  "repository": {
+		"url": "https://github.com/smartameer/vscode-slide",
+		"type": "github"
+	},
+  "funding": [
+    {
+      "type": "buymeacoffee",
+      "url": "https://www.buymeacoffee.com/smartameer"
+    }
+  ],
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "icon": "media/logo_128x128.png",
+  "activationEvents": [],
+  "contributes": {
+    "configuration": [
+			{
+				"title": "Slide",
+				"properties": {
+					"slide.gameLevel": {
+						"title": "Game level",
+						"type": "string",
+						"enum": [
+							"3 x 3",
+							"4 x 4",
+              "5 x 5"
+						],
+						"default": "4 x 4"
+					}
+        }
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "slide-game",
+          "title": "Slide",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "slide-game": [
+        {
+          "type": "webview",
+          "id": "slide.game",
+          "name": "Slide",
+          "visibility": "visible",
+          "contextualTitle": "Slide",
+          "initialSize": 260,
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "slide.new",
+        "category": "Slide",
+        "title": "New game",
+        "icon": "$(empty-window)",
+        "shortTitle": "New"
+      },
+      {
+				"command": "slide.settings",
+				"category": "Slide",
+				"title": "Game level",
+				"icon": "$(gear)",
+				"shortTitle": "Level"
+			}
+    ],
+    "menus": {
+			"view/title": [
+				{
+					"command": "slide.new",
+					"group": "navigation@0",
+					"when": "view == slide.game"
+				},
+        {
+          "command": "slide.settings",
+          "group": "navigation@1",
+          "when": "view == slide.game"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "webpack",
+    "watch": "webpack --mode development --watch --config webpack.config.ts",
+    "package": "webpack --mode production --devtool hidden-source-map --config webpack.config.ts",
+    "lint": "eslint src --ext [ts,tsx] --fix"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/preset-react": "^7.23.3",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "@vscode/test-electron": "^2.3.4",
+    "babel-loader": "^9.1.3",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "react-scripts": "^5.0.1",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
